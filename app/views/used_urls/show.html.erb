@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>TinyUrl:</strong>
+  http://localhost:3000/<%= @used_url.short_name %>
+</p>
+
+<p>
+  <strong>Long name:</strong>
+  <%= @used_url.long_name %>
+</p>
+
+<p>
+  <strong>Created Date:</strong>
+  <%= @used_url.created_at %>
+</p>
+
+<p>
+  <strong>Last Used Date:</strong>
+  <%= @used_url.last_used %>
+</p>
+
+<%= link_to 'Edit', edit_used_url_path(@used_url) %> |
+<%= link_to 'Back', used_urls_path %>

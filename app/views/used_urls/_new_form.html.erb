@@ -1,0 +1,21 @@
+<%= form_with(model: used_url) do |form| %>
+  <% if used_url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(used_url.errors.count, "error") %> prohibited this used_url from being saved:</h2>
+
+      <ul>
+        <% used_url.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_area :long_name, :cols => 30, :rows => 5 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create TinyUrl", class: 'btn btn-primary' %>
+  </div>
+<% end %>

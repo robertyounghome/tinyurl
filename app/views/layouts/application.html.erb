@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tinyurl</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-color: #FF8000">
+    <div class="page">
+      <div class="main border border-primary rounded">
+        <div id="tab">
+          <p><%= image_tag("tinyurl-rails.jpg") %></p>
+          <%= yield %>
+        </div>
+        <div class="border border-primary rounded-bottom foot">
+        <br>
+        <p>© 2021 Copyright: Robert S. Young</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

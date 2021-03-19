@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<div class="highlight">
+<p>You currently have <%= pluralize(@used_urls.length, "TinyURL") %></p>
+</div>
+<div>
+  <% @used_urls.each.with_index do |used_url, i| %>
+      <% if i % 2 == 0 %>
+        <div class = "clear">
+      <% else %>
+        <div class = "highlight">
+      <% end %>
+        <p>Created <%= time_ago_in_words used_url.created_at %> ago, and 
+        last used or updated <%= time_ago_in_words used_url.last_used %> ago.
+        </p>
+        <p>The TinyURL is <a href="http://localhost:3000/<%= used_url.short_name %>" target="_blank">
+        http://localhost:3000/<%= used_url.short_name %></a></p>
+        <p>The associated link is...</p>
+        <div width="25">
+        <p><a href="<%= used_url.long_name %>" target="_blank"><%= used_url.long_name %></a>
+        </p>
+        </div>
+        <p>Feel free to <%= link_to 'Update this TinyURL', edit_used_url_path(used_url.short_name) %>
+         or <%= link_to 'Delete this TinyURL', used_url, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'Create a new TinyURL', root_path %>

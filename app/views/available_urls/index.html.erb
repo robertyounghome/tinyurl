@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Available Urls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @available_urls.each do |available_url| %>
+      <tr>
+        <td><%= available_url.name %></td>
+        <td><%= link_to 'Show', available_url %></td>
+        <td><%= link_to 'Edit', edit_available_url_path(available_url) %></td>
+        <td><%= link_to 'Destroy', available_url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Available Url', new_available_url_path %>

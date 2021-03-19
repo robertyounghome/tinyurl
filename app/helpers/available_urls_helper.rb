@@ -1,0 +1,2 @@
+module AvailableUrlsHelper
+end

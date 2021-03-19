@@ -1,0 +1,41 @@
+<script>
+function clear_long_name() {
+    document.getElementById("used_url_long_name").value = '';
+}
+</script>
+
+<%= form_with(model: used_url) do |form| %>
+  <% if used_url.errors.any? %>
+    <div id="error_explanation">
+      <p><%= pluralize(used_url.errors.count, "error") %> prohibited this used_url from being saved:</p>
+
+      <ul>
+        <% used_url.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>The following is your TinyURL...</p>
+  <h2>
+  <a href="<%= root_url + @used_url.short_name %>" target="_blank">
+  <%= root_url + @used_url.short_name %></a>
+  </h2>
+
+  <div class="field">
+    <p>Unused links that have not been used in 30 days are recycled!</p>
+    <p>FYI this TinyURL and link was last used or modified 
+    <%= time_ago_in_words @used_url.last_used %> ago.</p>
+  </div>
+
+  <div class="field">
+    <p>Feel free to modify the associated link. Currently it is...</p>
+    <%= form.text_area :long_name, :cols => 30, :rows => 5 %>
+  </div>
+
+  <div class="actions">
+  <button type="button" class="btn btn-primary" onclick="clear_long_name();">Clear</button>
+    <%= form.submit "Save the Link", method: :post, class: 'btn btn-primary'%>
+  </div>
+<% end %>
